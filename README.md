@@ -48,6 +48,8 @@ RabbitMQ Management: http://localhost:15672 (User/Pass: guest)
 
 Kong Admin API: http://localhost:8001
 
+Konga Dashboard: http://localhost:1337
+
 MySQL: localhost:3307 (User: root | Pass: root)
 
 📬 Requests (Via Kong - Porta 8000)

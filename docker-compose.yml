@@ -20,6 +20,14 @@ services:
       - "8001:8001"  # API de Administração (Status/Config)
     restart: always
 
+  konga:
+    image: pantsel/konga
+    container_name: konga
+    ports:
+      - "1337:1337"
+    environment:
+      - NODE_ENV=production
+
   rabbitmq:
     image: rabbitmq:3-management
     container_name: rabbitmq
