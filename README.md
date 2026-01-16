@@ -33,7 +33,7 @@ CREATE TABLE payments (
 Certifique-se de que o FastAPI está ouvindo em 0.0.0.0 para ser visível pelo Docker.
 
 ```PowerShell
-uvicorn main:app --host 0.0.0.0 --port 5000
+uvicorn main.app:app --host 0.0.0.0 --port 5000
 ```
 
 4. Atualizar Configurações do Gateway
