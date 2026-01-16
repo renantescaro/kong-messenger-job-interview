@@ -59,6 +59,7 @@ class Database:
                 return object_model
         except Exception as e:
             print(f"'Database' error in 'save': {e}")
+            raise e
 
     def delete(self, object_model) -> None:
         with Session(engine) as session:
