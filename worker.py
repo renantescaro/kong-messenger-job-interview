@@ -56,5 +56,17 @@ def execute(ch, method, properties, body):
 
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel()
+
+# DLQ
+channel.exchange_declare(exchange='dlx_exchange', exchange_type='direct')
+channel.queue_declare(queue='payment_queue_dlq', durable=True)
+channel.queue_bind(exchange='dlx_exchange', queue='payment_queue_dlq', routing_key='dead_letter')
+
+# vincula DQL a fila payment_queue
+args = {
+    "x-dead-letter-exchange": "dlx_exchange", 
+    "x-dead-letter-routing-key": "dead_letter"
+}
+channel.queue_declare(queue='payment_queue', durable=True, arguments=args)
 channel.basic_consume(queue='payment_queue', on_message_callback=execute)
 channel.start_consuming()
