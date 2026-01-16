@@ -9,10 +9,6 @@ services:
         paths:
           - /pay
         strip_path: false
-      - name: rota-ping
-        paths:
-          - /ping
-        strip_path: false
     plugins:
       - name: rate-limiting
         config:
